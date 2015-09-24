@@ -1,0 +1,22 @@
+var server = http.createServer(function(request, response) {
+
+    var test1 = {product_id:"1234567", price:"$99.99"};
+    var test2 = {product_id:"5555555", price:"$4.99"};
+    var test3 = {product_id:"8888888", price:"$19.99"};
+    var result = {error: "test"};
+    console.log("Incoming: (" + request.method + ")" + request.url);
+    response.writeHead(200,{"Content type" : "application/json"});
+
+
+
+//    response.end(JSON.stringify(test1));
+    if(request.url == "/1234567"){
+        result = JSON.stringify(test1);
+    } else if (request.url == "/5555555") {
+        result = JSON.stringify(test2);
+    } else if (request.url == "/8888888") {
+        result = JSON.stringify(test3);
+    }
+
+    response.end(result);
+
