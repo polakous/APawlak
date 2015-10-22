@@ -4,15 +4,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 
-
-var pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    port: '3306',
-    password: 'password',
-    database: 'store'
-});
-
 var router = express.Router();
 router.use(bodyParser());
 
